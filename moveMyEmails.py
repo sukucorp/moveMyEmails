@@ -290,7 +290,7 @@ def process_internal_job(
         try:
             # Append email explicitly preserving flags and original date/timestamp
             mailbox.append(
-                message.bytes,
+                message.obj.as_bytes(),
                 folder=target,
                 flag_set=message.flags,
                 dt=message.date,
@@ -357,7 +357,7 @@ def process_cross_server_job(
                 try:
                     # Append email preserving flags and original date/timestamp explicitly
                     dest_mailbox.append(
-                        message.bytes,
+                        message.obj.as_bytes(),
                         folder=dest_target,
                         flag_set=message.flags,
                         dt=message.date,
